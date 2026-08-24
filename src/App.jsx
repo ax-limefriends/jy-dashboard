@@ -402,8 +402,10 @@ ${stats.highTempDefect.map(r=>`- ${r.date} ${r.product} ${r.line} 온도:${r.tem
                     <XAxis dataKey="date" tick={{fontSize:10,fill:"#7788AA"}}/>
                     <YAxis tick={{fontSize:10,fill:"#7788AA"}}/>
                     <Tooltip
-                      contentStyle={{background:"#1A2840",border:"1px solid #E87722",borderRadius:6,fontSize:12}}
-                      formatter={(v,n)=>[v+"%", "불량률"]}
+                      contentStyle={{background:"#101D2D",border:"1px solid #E87722",borderRadius:8,fontSize:12,boxShadow:"0 4px 14px rgba(0,0,0,0.6)"}}
+                      labelStyle={{color:"#FFFFFF",fontWeight:700,marginBottom:4}}
+                      itemStyle={{color:"#FFA756"}}
+                      formatter={(v)=>[v+"%", "불량률"]}
                     />
                     <Line type="monotone" dataKey="rate" stroke="#E87722" strokeWidth={2}
                       dot={{fill:"#E87722",r:3}} activeDot={{r:5}}/>
@@ -427,7 +429,9 @@ ${stats.highTempDefect.map(r=>`- ${r.date} ${r.product} ${r.line} 온도:${r.tem
                     <XAxis type="number" tick={{fontSize:10,fill:"#7788AA"}}/>
                     <YAxis dataKey="name" type="category" tick={{fontSize:10,fill:"#C8D8E8"}} width={80}/>
                     <Tooltip
-                      contentStyle={{background:"#1A2840",border:"1px solid #1A3C6E",borderRadius:6,fontSize:12}}
+                      contentStyle={{background:"#101D2D",border:"1px solid #2B4C7E",borderRadius:8,fontSize:12,boxShadow:"0 4px 14px rgba(0,0,0,0.6)"}}
+                      labelStyle={{color:"#FFFFFF",fontWeight:700,marginBottom:4}}
+                      itemStyle={{color:"#6DB1FF"}}
                       formatter={(v)=>[v+"%","불량률"]}
                     />
                     <Bar dataKey="rate" radius={[0,4,4,0]}>
@@ -458,10 +462,15 @@ ${stats.highTempDefect.map(r=>`- ${r.date} ${r.product} ${r.line} 온도:${r.tem
                   <PieChart>
                     <Pie data={stats.defectTypes} cx="50%" cy="50%" outerRadius={75}
                       dataKey="value" nameKey="name" label={({name,percent})=>`${name} ${(percent*100).toFixed(0)}%`}
-                      labelLine={true} fontSize={10}>
+                      labelLine={{stroke:"#7788AA"}} fontSize={11} fill="#E8EEF4">
                       {stats.defectTypes.map((e,i)=>(<Cell key={i} fill={COLORS[i%COLORS.length]}/>))}
                     </Pie>
-                    <Tooltip contentStyle={{background:"#1A2840",border:"1px solid #445566",fontSize:12}}/>
+                    <Tooltip
+                      contentStyle={{background:"#101D2D",border:"1px solid #445566",borderRadius:8,fontSize:12,boxShadow:"0 4px 14px rgba(0,0,0,0.6)"}}
+                      labelStyle={{color:"#FFFFFF",fontWeight:700,marginBottom:4}}
+                      itemStyle={{color:"#FFFFFF"}}
+                      formatter={(v,n)=>[v+"개 ("+((v/stats.totalDefect)*100).toFixed(1)+"%)", n]}
+                    />
                   </PieChart>
                 </ResponsiveContainer>
               </div>
@@ -543,8 +552,12 @@ ${stats.highTempDefect.map(r=>`- ${r.date} ${r.product} ${r.line} 온도:${r.tem
                     <CartesianGrid strokeDasharray="3 3" stroke="#1E2D40"/>
                     <XAxis dataKey="name" tick={{fontSize:11,fill:"#C8D8E8"}}/>
                     <YAxis tick={{fontSize:10,fill:"#7788AA"}}/>
-                    <Tooltip contentStyle={{background:"#1A2840",border:"1px solid #C0392B",fontSize:12}}
-                      formatter={(v)=>[v+"개","불량수"]}/>
+                    <Tooltip
+                      contentStyle={{background:"#101D2D",border:"1px solid #C0392B",borderRadius:8,fontSize:12,boxShadow:"0 4px 14px rgba(0,0,0,0.6)"}}
+                      labelStyle={{color:"#FFFFFF",fontWeight:700,marginBottom:4}}
+                      itemStyle={{color:"#FF8A7A"}}
+                      formatter={(v)=>[v+"개","불량수"]}
+                    />
                     <Bar dataKey="value" fill="#C0392B" radius={[4,4,0,0]}/>
                   </BarChart>
                 </ResponsiveContainer>
@@ -640,8 +653,12 @@ ${stats.highTempDefect.map(r=>`- ${r.date} ${r.product} ${r.line} 온도:${r.tem
                     <CartesianGrid strokeDasharray="3 3" stroke="#1E2D40"/>
                     <XAxis dataKey="name" tick={{fontSize:12,fill:"#C8D8E8"}}/>
                     <YAxis tick={{fontSize:10,fill:"#7788AA"}}/>
-                    <Tooltip contentStyle={{background:"#1A2840",border:"1px solid #6C3483",fontSize:12}}
-                      formatter={(v)=>[v+"%","불량률"]}/>
+                    <Tooltip
+                      contentStyle={{background:"#101D2D",border:"1px solid #8E44AD",borderRadius:8,fontSize:12,boxShadow:"0 4px 14px rgba(0,0,0,0.6)"}}
+                      labelStyle={{color:"#FFFFFF",fontWeight:700,marginBottom:4}}
+                      itemStyle={{color:"#D7BDE2"}}
+                      formatter={(v)=>[v+"%","불량률"]}
+                    />
                     <Bar dataKey="rate" radius={[4,4,0,0]}>
                       {stats.workerStats.map((e,i)=>(<Cell key={i} fill={COLORS[i%COLORS.length]}/>))}
                     </Bar>
